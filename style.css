@@ -1297,6 +1297,7 @@ body[data-theme='dark'] .hljs-deletion {
 .chat-window-wrapper .chat-window-toggle {
   flex: 0 0 auto;
   color: var(--primary-color);
+  background-color: var(--primary-color);
   cursor: pointer;
   width: var(--chat--toggle--width);
   height: var(--chat--toggle--height);
