@@ -1326,16 +1326,11 @@ body[data-theme='dark'] .hljs-deletion {
   justify-content: center;
   
   /* Typography tweaks */
-  color: #ffffff;               /* white text */
-  font-size: 1rem;              /* base size */
-  font-weight: 600;             /* semi-bold */
-  letter-spacing: 0.5px;        /* a bit more breathing room */
-  text-transform: uppercase;    /* optional: make it uppercase */
-  
-  /* A subtle drop-shadow for depth */
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  
-  /* Prevent clicks from hitting the pseudo-element itself */
   pointer-events: none;
 }
 }
