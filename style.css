@@ -1376,7 +1376,7 @@ body[data-theme='dark'] .hljs-deletion {
   --chat--transition-duration: 0.15s;
   
   /* Toggle variables */
-  --chat--toggle--width: 120px;
+  --chat--toggle--width: 200px;
   --chat--toggle--height: 64px;
   --chat--toggle--border-radius: 32px;
   --chat--toggle--background: var(--button-bg);
@@ -1525,7 +1525,6 @@ textarea::placeholder {
 
 /* Toggle styling with an image */
 #n8n-chat-widget-2 .chat-window-wrapper .chat-window-toggle {
-  width: 220px;
   height: var(--chat--toggle--height);
   font-family: var(--font-family-primary);
   border-radius: var(--chat--toggle--border-radius);
