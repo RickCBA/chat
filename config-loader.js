@@ -29,7 +29,7 @@ export async function loadWidgetConfig(practiceId) {
         position: 'bottom-right'
       },
       branding: {
-        logo: 'https://cdn.your-service.com/default-logo.png',
+        logo: 'https://raw.githubusercontent.com/RickCBA/widget-centered/8b12518cc4d3732b69f9b179b4e5973e992dd1fd/Alan%20avatar.jpg',
         title: 'Chat with us'
       }
     };
