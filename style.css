@@ -1313,7 +1313,7 @@ body[data-theme='dark'] .hljs-deletion {
 .chat-window-wrapper .chat-window-toggle:hover,
 .chat-window-wrapper .chat-window-toggle:focus {
   transform: scale(1.05);
-  background: var(--chat--toggle--hover--background);
+  filter: brightness(1.1);
 }
 
 .chat-window-wrapper .chat-window-toggle:active {
