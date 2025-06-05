@@ -1478,7 +1478,7 @@ body[data-theme='dark'] .hljs-deletion {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background: url('http://closedby.ai/wp-content/uploads/2025/04/Asset-1-e546cf.svg') no-repeat center center;
+  background: var(--logo-url) no-repeat center center;
   background-size: cover;
   object-position: center;
   animation: slideLeft 0.5s ease 0s 1 forwards running !important;
