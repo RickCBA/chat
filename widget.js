@@ -1,5 +1,5 @@
 // widget.js
-(async function( ) {
+(async function() {
   // Get practice ID from script tag
   const scriptTag = document.currentScript;
   const practiceId = scriptTag.getAttribute('data-practice-id');
@@ -9,16 +9,20 @@
     return;
   }
   
+  // Get the base URL from the current script
+  const baseUrl = new URL(scriptTag.src).origin;
+  
   // Create global config object
   window.widgetConfig = {
     practiceId,
-    sessionId: crypto.randomUUID()
+    sessionId: crypto.randomUUID(),
+    baseUrl
   };
   
   // Load configuration
   try {
-    // Import the config loader
-    const { loadWidgetConfig } = await import('./config-loader.js');
+    // Import the config loader with absolute URL
+    const { loadWidgetConfig } = await import(`${baseUrl}/config-loader.js`);
     
     // Load configuration
     window.widgetConfig.config = await loadWidgetConfig(practiceId);
@@ -33,7 +37,7 @@
     // Add CSS
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = './style.css';
+    link.href = `${baseUrl}/style.css`;
     document.head.appendChild(link);
     
     // Add dynamic CSS
@@ -44,7 +48,7 @@
     // Load main script
     const script = document.createElement('script');
     script.type = 'module';
-    script.src = './main.js';
+    script.src = `${baseUrl}/main.js`;
     document.body.appendChild(script);
   }
   
