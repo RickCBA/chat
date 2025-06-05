@@ -1296,8 +1296,7 @@ body[data-theme='dark'] .hljs-deletion {
 
 .chat-window-wrapper .chat-window-toggle {
   flex: 0 0 auto;
-  background: http://closedby.ai/wp-content/uploads/2025/04/Window-Toggle-button.png;
-  color: var(--chat--toggle--color);
+  color: var(--primary-color);
   cursor: pointer;
   width: var(--chat--toggle--width);
   height: var(--chat--toggle--height);
