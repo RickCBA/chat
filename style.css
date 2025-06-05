@@ -66,7 +66,7 @@
   --chat--window--border: 1px solid var(--chat--color-light-shade-100);
   --chat--window--border-radius: var(--chat--border-radius);
   --chat--window--margin-bottom: var(--chat--spacing);
-  --chat--window--z-index: 9999;
+  --chat--window--z-index: 10002;
   --chat--window--right: var(--chat--spacing);
   --chat--window--bottom: var(--chat--spacing);
   
