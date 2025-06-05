@@ -1826,10 +1826,6 @@ textarea::placeholder {
     width: 95%;
     padding: 10px;
   }
-  
-  #n8n-chat-widget-2 .chat-footer {
-    margin-bottom: 5%;
-  }
 
   #n8n-chat-widget-2 .chat-message {
     font-size: 1rem;
