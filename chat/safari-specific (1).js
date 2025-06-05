@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const applySafariMarginFix = () => {
       const chatFooter = document.querySelector('#n8n-chat-widget-2 .chat-footer');
       if (chatFooter) {
-        chatFooter.style.marginBottom = '28svh';
+        chatFooter.style.marginBottom = '20svh';
         
         // Force a reflow to ensure the style is applied
         void chatFooter.offsetHeight;
