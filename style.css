@@ -1493,7 +1493,7 @@ textarea::placeholder {
 
 /* Send button styling */
 #n8n-chat-widget-2 .chat-footer button {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color);
+  background: var(--button-bg);
   color: var(--button-text);
   border: none;
   width: 60px;
