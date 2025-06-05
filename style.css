@@ -1851,10 +1851,6 @@ textarea::placeholder {
     flex: 1 1 100%;
   }
 
-  .chat-window-wrapper .chat-window .chat-layout {
-    padding: 35px 10px;
-  }
-
   .custom-adjacent-refresh-button {
     left: auto;
     right: 20px;
@@ -1864,10 +1860,6 @@ textarea::placeholder {
 
 /* 480px Media Queries */
 @media (max-width: 480px) {
-  .chat-window-wrapper .chat-window .chat-layout {
-    padding: 35px 10px;
-  }
-
   .centered-chat {
     position: fixed;
     top: 50%;
