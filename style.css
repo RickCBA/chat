@@ -1368,6 +1368,7 @@ body[data-theme='dark'] .hljs-deletion {
   --primary-color: #6EC1E4;
   --secondary-color: #54595F;
   --text-colour: #ffffff;
+  --logo-url: #ffffff;
   --input-bg: #8f0a0a;
   --input-placeholder: #ffffff;
   --input-text: #1f1e1e;
