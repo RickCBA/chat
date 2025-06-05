@@ -1907,7 +1907,7 @@ textarea::placeholder {
 @supports (-webkit-touch-callout: none) {
   /* This targets iOS Safari specifically */
   #n8n-chat-widget-2 .chat-footer {
-    margin-bottom: max(10%, env(safe-area-inset-bottom, 0px));
+    margin-bottom: max(25%, env(safe-area-inset-bottom, 0px));
   }
   
   /* Only on very small screens, add minimal padding */
