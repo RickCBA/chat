@@ -1466,7 +1466,7 @@ body[data-theme='dark'] .hljs-deletion {
 }
 
 #n8n-chat-widget-2 .chat-message.chat-message-from-user {
-  background: var(--reply-text-bg);
+  background: var(--primary-color);
   color: var(--button-text);
   margin-left: auto;
   text-align: left;
