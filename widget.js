@@ -57,12 +57,14 @@ function generateDynamicCSS(config) {
   const primary = config.colors.primary;
   const secondary = config.colors.secondary;
   const text = config.colors.text;
+  const logoUrl = config.branding.logo || 'https://raw.githubusercontent.com/RickCBA/widget-centered/8b12518cc4d3732b69f9b179b4e5973e992dd1fd/Alan%20avatar.jpg';
   
   return `
     #n8n-chat-widget-2 {
       --primary-color: ${primary} !important;
       --secondary-color: ${secondary} !important;
       --text-colour: ${text} !important;
+      --logo-url: url('${logoUrl}' )
       
       ${config.behavior.position === 'bottom-right' ? 'right: 20px; bottom: 20px;' : ''}
       ${config.behavior.position === 'bottom-left' ? 'left: 20px; bottom: 20px;' : ''}
