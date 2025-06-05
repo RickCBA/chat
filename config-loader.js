@@ -1,7 +1,7 @@
 // config-loader.js
 export async function loadWidgetConfig(practiceId) {
   try {
-    const response = await fetch(`https://your-n8n-url.com/api/widget-config/${practiceId}` );
+    const response = await fetch(`https://closedbyrick.app.n8n.cloud/webhook/widget-config?practice_id=${practiceId}` );
     if (!response.ok) throw new Error('Failed to load widget configuration');
     return await response.json();
   } catch (error) {
