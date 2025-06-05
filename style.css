@@ -1312,13 +1312,10 @@ body[data-theme='dark'] .hljs-deletion {
 
 #n8n-chat-widget-2 .chat-window-wrapper .chat-window-toggle::before {
     content: "Chat Now";
-    display: block;
     color: white;
     font-size: 1rem;
-    line-height: var(--chat--toggle--height);
     text-align: center;
     width: 100%;
-    pointer-events: none;
 }
 
 .chat-window-wrapper .chat-window-toggle:hover,
