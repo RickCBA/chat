@@ -1090,7 +1090,7 @@ body[data-theme='dark'] .hljs-deletion {
 
 .chat-layout .chat-footer {
   border-top: 1px solid var(--chat--color-light-shade-100);
-  background: var(--chat--footer--background);
+  background: var(--primary-color);
   color: var(--chat--footer--color);
 }
 
