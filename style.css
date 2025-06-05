@@ -1512,7 +1512,7 @@ textarea::placeholder {
 }
 
 #n8n-chat-widget-2 .chat-footer button:hover {
-  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color);
+  background: linear-gradient(135deg, #00c6ff, #7f5af0);
 }
 
 /* Toggle styling with an image */
