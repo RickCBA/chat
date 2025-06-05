@@ -1485,7 +1485,7 @@ body[data-theme='dark'] .hljs-deletion {
 
 #n8n-chat-widget-2 .chat-message.chat-message-from-user {
   background: var(--primary-color);
-  color: var(--text-color);
+  color: var(--text-colour);
   margin-left: auto;
   text-align: left;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
