@@ -1494,7 +1494,7 @@ textarea::placeholder {
 
 /* Send button styling */
 #n8n-chat-widget-2 .chat-footer button {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--primary-color);
   color: var(--button-text);
   border: none;
   width: 60px;
@@ -1513,7 +1513,7 @@ textarea::placeholder {
 }
 
 #n8n-chat-widget-2 .chat-footer button:hover {
-  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  filter: brightness(1.1);
 }
 
 /* Toggle styling with an image */
