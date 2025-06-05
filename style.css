@@ -1846,7 +1846,6 @@ textarea::placeholder {
 
   .my-canned-bot-message .canned-messages-grid {
     padding-right: 0;
-    gap: 6px;
   }
 
   .my-canned-bot-message .canned-messages-grid button {
