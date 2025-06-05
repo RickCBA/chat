@@ -1318,8 +1318,7 @@ body[data-theme='dark'] .hljs-deletion {
 
 .chat-window-wrapper .chat-window-toggle:active {
   transform: scale(0.95);
-  background: var(--chat--toggle--active--background);
-  border: 3px solid #7f5af0 !important;
+  background: var(--primary-color);
 }
 
 /* Chat Window Transitions */
