@@ -1689,7 +1689,6 @@ textarea::placeholder {
 }
 
 .chat-window-wrapper .chat-window .chat-layout {
-  padding-bottom: 20px;
   padding-top: 0px;
   display: flex;
   flex-direction: column;
