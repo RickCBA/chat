@@ -979,7 +979,7 @@ body[data-theme='dark'] .hljs-deletion {
   height: 100%;
   background: var(--chat--input--background);
   resize: var(--chat--textarea--resize);
-  color: var(--chat--input--text-color);
+  color: var(--chat--input--text-colour);
   outline: none;
 }
 
@@ -1150,7 +1150,7 @@ body[data-theme='dark'] .hljs-deletion {
 }
 
 .chat-message.chat-message-from-user {
-  color: var(--text-color);
+  color: var(--text-colour);
   margin-left: auto;
   border-bottom-right-radius: 0;
 }
@@ -1320,7 +1320,7 @@ body[data-theme='dark'] .hljs-deletion {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-color);
+  color: var(--text-colour);
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 0.5px;
@@ -1367,7 +1367,7 @@ body[data-theme='dark'] .hljs-deletion {
 #n8n-chat-widget-2 {
   --primary-color: #6EC1E4;
   --secondary-color: #54595F;
-  --text-color: #ffffff;
+  --text-colour: #ffffff;
   --input-bg: #8f0a0a;
   --input-placeholder: #ffffff;
   --input-text: #1f1e1e;
