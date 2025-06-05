@@ -1243,7 +1243,6 @@ body[data-theme='dark'] .hljs-deletion {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 16px;
 }
 
 /* Chat Heading */
@@ -1427,7 +1426,6 @@ body[data-theme='dark'] .hljs-deletion {
 
 /* Chat messages */
 #n8n-chat-widget-2 .chat-message {
-  width: auto;
   max-width: 90%;
   padding: 10px 14px;
   border-radius: 24px;
