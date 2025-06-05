@@ -1899,3 +1899,21 @@ textarea::placeholder {
     grid-template-columns: 1fr;
   }
 }
+
+
+
+/* ===== SAFARI-SPECIFIC FIXES ===== */
+/* Very subtle iOS Safari fix - only adds minimal spacing when needed */
+@supports (-webkit-touch-callout: none) {
+  /* This targets iOS Safari specifically */
+  #n8n-chat-widget-2 .chat-footer {
+    margin-bottom: max(10%, env(safe-area-inset-bottom, 0px));
+  }
+  
+  /* Only on very small screens, add minimal padding */
+  @media (max-width: 480px) and (max-height: 812px) {
+    #n8n-chat-widget-2 .chat-footer {
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+  }
+}
