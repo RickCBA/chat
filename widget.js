@@ -64,7 +64,7 @@ function generateDynamicCSS(config) {
       --primary-color: ${primary} !important;
       --secondary-color: ${secondary} !important;
       --text-colour: ${text} !important;
-      --logo-url: url('${logoUrl}' )
+      --logo-url: url('${logoUrl}');
       
       ${config.behavior.position === 'bottom-right' ? 'right: 20px; bottom: 20px;' : ''}
       ${config.behavior.position === 'bottom-left' ? 'left: 20px; bottom: 20px;' : ''}
