@@ -1825,6 +1825,13 @@ textarea::placeholder {
     width: 95%;
     padding: 10px;
   }
+  
+  #n8n-chat-widget-2 .chat-footer {
+    margin-bottom: 5%;
+    /* Enhanced Safari mobile spacing */
+    padding-bottom: max(env(safe-area-inset-bottom, 20px), 20px);
+    margin-bottom: max(5%, env(safe-area-inset-bottom, 20px));
+  }
 
   #n8n-chat-widget-2 .chat-message {
     font-size: 1rem;
@@ -1846,6 +1853,10 @@ textarea::placeholder {
     flex: 1 1 100%;
   }
 
+  .chat-window-wrapper .chat-window .chat-layout {
+    padding: 35px 10px;
+  }
+
   .custom-adjacent-refresh-button {
     left: auto;
     right: 20px;
@@ -1855,6 +1866,10 @@ textarea::placeholder {
 
 /* 480px Media Queries */
 @media (max-width: 480px) {
+  .chat-window-wrapper .chat-window .chat-layout {
+    padding: 35px 10px;
+  }
+
   .centered-chat {
     position: fixed;
     top: 50%;
@@ -1900,3 +1915,33 @@ textarea::placeholder {
   }
 }
 
+
+/* ===== SAFARI-SPECIFIC FIXES ===== */
+/* iOS Safari specific fixes for safe area and viewport issues */
+@supports (-webkit-touch-callout: none) {
+  /* This targets iOS Safari specifically */
+  #n8n-chat-widget-2 .chat-footer {
+    padding-bottom: max(env(safe-area-inset-bottom), 30px) !important;
+    margin-bottom: max(10%, env(safe-area-inset-bottom), 30px) !important;
+  }
+  
+  .chat-window-wrapper .chat-window .chat-layout {
+    padding-bottom: max(env(safe-area-inset-bottom), 30px);
+  }
+  
+  /* Additional spacing for very small screens in Safari */
+  @media (max-width: 480px) {
+    #n8n-chat-widget-2 .chat-footer {
+      padding-bottom: max(env(safe-area-inset-bottom), 40px) !important;
+      margin-bottom: max(8%, env(safe-area-inset-bottom), 40px) !important;
+    }
+  }
+}
+
+/* Alternative fix for older iOS versions that don't support env() */
+@media screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) {
+  #n8n-chat-widget-2 .chat-footer {
+    padding-bottom: 40px !important;
+    margin-bottom: max(10%, 40px) !important;
+  }
+}
