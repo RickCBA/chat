@@ -3,6 +3,9 @@ import { createTypingIndicator } from './helper/createTypingIndicator.js';
 import { createTypingMessage } from './helper/createTypingMessage.js';
 
 export async function getInitialMessages() {
+  // Get config from global object
+  const config = window.widgetConfig.config;
+  
   setTimeout(() => {
     const chatMessagesList = document.querySelector(
       '#n8n-chat-widget-2 .chat-body .chat-messages-list'
@@ -10,16 +13,16 @@ export async function getInitialMessages() {
     if (chatMessagesList) {
       const message = createTypingMessage();
       const message2 = createTypingMessage();
-      const cannedMsgDiv = createCannedMessage();
+      const cannedMsgDiv = createCannedMessage(config.content.cannedMessages);
       const typingDiv = createTypingIndicator();
       const typingDiv2 = createTypingIndicator();
-
+      
       // Insert first message: with typing indicator
       message.appendChild(typingDiv);
       if (chatMessagesList && chatMessagesList.firstChild) {
         chatMessagesList.insertBefore(message, chatMessagesList.firstChild);
       }
-
+      
       //  Replace typing in first message, insert second message with typing
       setTimeout(() => {
         message.removeChild(typingDiv);
@@ -27,11 +30,10 @@ export async function getInitialMessages() {
           'chat-message-typing',
           'chat-message-typing-animation-bouncing'
         );
-        message.innerHTML = `<p style="margin: 0; font-style: italic;">We may store personal data and use it to contact you. See <a href="https://closedby.ai/legal/#privacy-policy" target="_blank" style="color: inherit; text-decoration: underline;">Privacy Policy</a> </p>`;
-
+        message.innerHTML = `<p style="margin: 0; font-style: italic;">${config.content.privacyPolicy} <a href="${config.content.privacyPolicyLink}" target="_blank" style="color: inherit; text-decoration: underline;">Privacy Policy</a> </p>`;
+        
         // First message: typing indicator
         message2.appendChild(typingDiv2);
-
         if (
           chatMessagesList &&
           chatMessagesList.firstChild.nextSibling.nextSibling
@@ -42,7 +44,7 @@ export async function getInitialMessages() {
           );
         }
       }, 3500);
-
+      
       //  Replace typing in second message
       setTimeout(() => {
         message2.removeChild(typingDiv2);
@@ -50,9 +52,9 @@ export async function getInitialMessages() {
           'chat-message-typing',
           'chat-message-typing-animation-bouncing'
         );
-        message2.innerHTML = `<p style="margin: 0"> Hello, Alan here. How can I help?</p>`;
+        message2.innerHTML = `<p style="margin: 0"> ${config.content.welcomeMessage}</p>`;
       }, 4500);
-
+      
       // Show canned message options and enable scroll-Y automatically
       setTimeout(() => {
         const chatWindow = document.querySelector(
@@ -64,34 +66,8 @@ export async function getInitialMessages() {
             chatMessagesList.firstChild.nextSibling.nextSibling
           );
         }
-
         chatWindow.scrollTop = chatWindow.scrollHeight;
       }, 5000);
-
-      //grid canned-Messages button
-      const buttons = cannedMsgDiv.querySelectorAll(
-        '.canned-messages-grid button'
-      );
-      buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const messageText = button.getAttribute('data-send');
-          const chatInputField = document.querySelector(
-            '#n8n-chat-widget-2 textarea'
-          );
-          if (chatInputField) {
-            chatInputField.value = messageText;
-            chatInputField.dispatchEvent(new Event('input', { bubbles: true }));
-
-            // delay to give widget time to activate send button
-            setTimeout(() => {
-              const sendButton = document.querySelector(
-                '#n8n-chat-widget-2 .chat-footer button'
-              );
-              if (sendButton) sendButton.click();
-            }, 150);
-          }
-        });
-      });
     }
   }, 500);
 }
