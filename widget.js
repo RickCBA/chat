@@ -52,21 +52,23 @@
     document.body.appendChild(script);
   }
   
-  function generateDynamicCSS(config) {
-    return `
-      :root {
-        --primary-color: ${config.colors.primary};
-        --secondary-color: ${config.colors.secondary};
-        --text-color: ${config.colors.text};
-        --background-color: ${config.colors.background};
-      }
+function generateDynamicCSS(config) {
+  // Extract colors from config
+  const primary = config.colors.primary;
+  const secondary = config.colors.secondary;
+  const text = config.colors.text;
+  
+  return `
+    #n8n-chat-widget-2 {
+      --primary-color: ${primary} !important;
+      --secondary-color: ${secondary} !important;
+      --text-colour: ${text} !important;
       
-      #n8n-chat-widget-2 {
-        ${config.behavior.position === 'bottom-right' ? 'right: 20px; bottom: 20px;' : ''}
-        ${config.behavior.position === 'bottom-left' ? 'left: 20px; bottom: 20px;' : ''}
-        ${config.behavior.position === 'top-right' ? 'right: 20px; top: 20px;' : ''}
-        ${config.behavior.position === 'top-left' ? 'left: 20px; top: 20px;' : ''}
-      }
-    `;
-  }
+      ${config.behavior.position === 'bottom-right' ? 'right: 20px; bottom: 20px;' : ''}
+      ${config.behavior.position === 'bottom-left' ? 'left: 20px; bottom: 20px;' : ''}
+      ${config.behavior.position === 'top-right' ? 'right: 20px; top: 20px;' : ''}
+      ${config.behavior.position === 'top-left' ? 'left: 20px; top: 20px;' : ''}
+    }
+  `;
+}
 })();
