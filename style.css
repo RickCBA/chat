@@ -114,6 +114,7 @@
 /* ===== BASE STYLES ===== */
 body {
   font-family: var(--font-family-primary) !important;
+  height: -webkit-fill-available;
 }
 
 /* ===== HIGHLIGHT.JS STYLES ===== */
