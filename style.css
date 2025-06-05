@@ -1570,6 +1570,7 @@ textarea::placeholder {
   background: url('https://github.com/RickCBA/widget-centered/blob/main/1image.png?raw=true') no-repeat center center;
   background-size: cover;
   margin-bottom: 48px;
+  color: transparent;
 }
 
 #n8n-chat-widget-2 .chat-window-toggle {
