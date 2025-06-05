@@ -1239,7 +1239,7 @@ body[data-theme='dark'] .hljs-deletion {
 .chat-messages-list {
   margin-top: auto;
   display: block;
-  padding: var(--chat--messages-list--padding);
+  padding-bottom: var(--chat--messages-list--padding);
   display: flex;
   flex-direction: column;
   width: 100%;
