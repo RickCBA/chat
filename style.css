@@ -1518,45 +1518,45 @@ textarea::placeholder {
   position: relative;
 }
 
-/* make sure the toggle is a positioning context */
+/* ────────────────────────────────────────────────────────────────────────── */
+/* ClosedBy.ai pill (no wrap) to the left of the toggle                    */
+/* ────────────────────────────────────────────────────────────────────────── */
 #n8n-chat-widget-2 .chat-window-toggle {
   position: relative;
 }
 
-/* base pill style */
-#n8n-chat-widget-2 .chat-window-toggle .closedby-link {
+#n8n-chat-widget-2 .chat-window-toggle .closedby-pill {
   position: absolute;
   top: 50%;
-  right: calc(100% + 8px);       /* 8px gap to the left of the toggle */
+  right: calc(100% + 8px);       /* sits 8px to the left of the toggle */
   transform: translateY(-50%) translateX(10px);
-  display: inline-block;
+  display: inline-block;         /* for width + block padding */
+  white-space: nowrap;           /* NO wrapping, ever */
   padding: 4px 10px;
   font-size: 10px;
   color: #555;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255,255,255,0.9);
   border-radius: 9999px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-decoration: none;
-  pointer-events: auto;
+  pointer-events: none;          /* make only the inner <a> clickable */
   opacity: 0;
-  /* slide-in from the right + fade */
   animation: cb-fade-slide-left 0.35s ease-out forwards;
   animation-delay: 0.2s;
 }
 
-/* trigger the animation when open */
-#n8n-chat-widget-2 .chat-window-toggle.open .closedby-link {
+/* only when the toggle has .open do we run the animation & make pointer-events work */
+#n8n-chat-widget-2 .chat-window-toggle.open .closedby-pill {
+  opacity: 1;
+  pointer-events: auto;
   animation-name: cb-fade-slide-left;
 }
 
-/* hover state */
-#n8n-chat-widget-2 .chat-window-toggle .closedby-link:hover {
-  background: rgba(255,255,255,1);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+/* hover the link only */
+#n8n-chat-widget-2 .chat-window-toggle .closedby-pill .closedby-link:hover {
   text-decoration: underline;
 }
 
-/* keyframes: start 10px over, fade in, slide to 0 */
+/* slide + fade keyframes */
 @keyframes cb-fade-slide-left {
   from {
     opacity: 0;
