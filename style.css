@@ -1524,26 +1524,54 @@ textarea::placeholder {
 }
 
 /* base style for your injected link */
-#n8n-chat-widget-2 .chat-window-toggle .closedby-link {
-  position: absolute;
-  left: 50%;
-  bottom: 6px;              /* tweak vertical position */
-  transform: translateX(-50%);
-  font-size: 10px;
-  white-space: nowrap;
-  text-decoration: none;
-  color: #999;
-  padding: 2px 6px;
-  border-radius: 6px;
-  background: rgba(0,0,0,0.05);
-  pointer-events: auto;     /* allow clicks */
-  opacity: 0.8;
-  display: none;               /* hidden until `.open` */
+/* ----------------------------------------------------------------------------
+   🔹 ClosedBy.ai pill under the widget toggle
+   ---------------------------------------------------------------------------- */
+#n8n-chat-widget-2 .chat-window-toggle {
+  position: relative; /* make this the positioning context */
 }
 
-/* when the toggle has .open, show the link */
-#n8n-chat-widget-2 .chat-window-toggle.open .closedby-link {
-  display: block;
+#n8n-chat-widget-2 .chat-window-toggle .closedby-pill {
+  position: absolute;
+  bottom: -28px;              /* tuck it just below the toggle */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  display: inline-block;      /* let animation bring opacity in */
+  padding: 4px 10px;
+  font-size: 10px;
+  color: #555;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 9999px;      /* big pill */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-decoration: none;
+  pointer-events: auto;
+  opacity: 0;
+  animation: cb-fade-slide-up 0.35s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* only run the animation when .open is added */
+#n8n-chat-widget-2 .chat-window-toggle.open .closedby-pill {
+  animation-name: cb-fade-slide-up;
+}
+
+/* hover tweak */
+#n8n-chat-widget-2 .chat-window-toggle .closedby-pill:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  text-decoration: underline;
+}
+
+/* keyframes for fade + slide */
+@keyframes cb-fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 /* Send button styling */
