@@ -1552,15 +1552,11 @@ textarea::placeholder {
 }
 
 
-/* hide it by default */
 .chat-toggle-branding {
-  display: none;
   position: absolute;
   top: 50%;
   right: 100%;
   transform: translateY(-50%);
-  
-  /* pill look */
   background: #f5f8fa;
   color: #2d3748;
   font-size: 11px;
@@ -1568,19 +1564,14 @@ textarea::placeholder {
   border-radius: 999px;
   white-space: nowrap;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-
+  margin-right: 8px;
   text-decoration: none;
-  pointer-events: auto; /* allow clicking the link */
+  pointer-events: auto;
   z-index: 1;
 }
-
-/* you don’t need an extra selector here—the JS shows it/hides it.
-   But if you wanted a purely-CSS guard you could do:
-
-.chat-window-toggle.open + .chat-toggle-branding {
-  display: block;
+.chat-toggle-branding:hover {
+  text-decoration: underline;
 }
-*/
 
 #n8n-chat-widget-2 .chat-window-wrapper .chat-window-toggle:hover {
   scale: 1.01;
