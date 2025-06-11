@@ -1551,6 +1551,22 @@ textarea::placeholder {
   box-shadow: rgba(59, 68, 164, 0.31) 2px 4px 28px 0px;
 }
 
+.chat-window-toggle.open::before {
+  content: "⚡By Closedby.ai";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f5f8fa;
+  color: #2d3748;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-right: 8px;
+  pointer-events: none;
+
 #n8n-chat-widget-2 .chat-window-wrapper .chat-window-toggle:hover {
   scale: 1.01;
   transition: all 0.1s linear;
