@@ -1566,6 +1566,7 @@ textarea::placeholder {
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
   margin-right: 8px;
   pointer-events: none;
+}
 
 #n8n-chat-widget-2 .chat-window-wrapper .chat-window-toggle:hover {
   scale: 1.01;
