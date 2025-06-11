@@ -12,7 +12,7 @@
   window.chatInstance = null;
   
   initChat(sessionId); // Function to create chat instance
-  setupToggleButton(); // Function to set Toggle button
+  setupToggleButton(config); // Function to set Toggle button
   refreshButton(getInitialMessages); // Function to trigger getInitialMessages()
   getInitialMessages(); // Function to get initial messages on load
 })();
