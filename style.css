@@ -1512,67 +1512,56 @@ textarea::placeholder {
 }
 
 
-
-/* make sure the footer can position children */
 #n8n-chat-widget-2 .chat-footer {
   position: relative;
 }
 
-/* ----------------------------------------------------------------------------
-   🔹 ClosedBy.ai pill: drop-from-under-then-slide-left + fade-to-70%
-   ---------------------------------------------------------------------------- */
 #n8n-chat-widget-2 .chat-window-toggle {
-  position: relative; /* context for the pill */
+  position: relative; /* context for absolutely-positioned pill */
 }
 
 #n8n-chat-widget-2 .chat-window-toggle .closedby-pill {
   position: absolute;
-  top: 50%;    
-  left: 50%;  
-  /* start centered under the toggle, 10px lower */
-  transform: translate(-50%, 10px);
-  white-space: nowrap;
+  top: 50%;
+  right: calc(100% + 8px);       /* sits 8px to the left of the toggle */
+  transform: translateY(-50%) translateX(10px);
+  display: inline-block;         /* allow padding & auto-width */
+  white-space: nowrap;           /* never wrap text */
   padding: 4px 10px;
   font-size: 10px;
   color: #555;
   background: rgba(255,255,255,0.9);
   border-radius: 9999px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  pointer-events: none; /* only the link inside is clickable */
+  pointer-events: none;          /* only inner <a> is clickable */
   opacity: 0;
-  /* no animation defined here */
-}
-
-/* when .open is added, trigger the ride-and-fade */
-#n8n-chat-widget-2 .chat-window-toggle.open .closedby-pill {
-  pointer-events: auto; /* now the link can be clicked */
-  animation: cb-ride-up-left 0.6s ease-out forwards;
+  animation: cb-fade-slide-left 0.6s ease-out forwards;
   animation-delay: 0.2s;
 }
 
-/* only underline when hovering the link */
+/* when the widget is open, fade-slide to 70% and enable clicks */
+#n8n-chat-widget-2 .chat-window-toggle.open .closedby-pill {
+  opacity: 0.7;                   /* final opacity */
+  pointer-events: auto;
+  animation-name: cb-fade-slide-left;
+}
+
+/* only underline on hover of the link itself */
 #n8n-chat-widget-2 .chat-window-toggle .closedby-pill .closedby-link:hover {
   text-decoration: underline;
 }
 
-/* keyframes: from under-toggle → beside it, fade 0→.7 */
-@keyframes cb-ride-up-left {
+/* keyframes: start 10px over + invisible → slide in + fade to 0.7 */
+@keyframes cb-fade-slide-left {
   from {
     opacity: 0;
-    transform: translate(-50%, 10px);
+    transform: translateY(-50%) translateX(10px);
   }
   to {
     opacity: 0.7;
-    /* 
-      translateX(-100% - 8px): 
-        -100% moves the pill left by its own width, 
-        -8px adds your gap. 
-      translateY(-50%) centers vertically.
-    */
-    transform: translate(calc(-100% - 8px), -50%);
+    transform: translateY(-50%) translateX(0);
   }
 }
-
 /* Send button styling */
 #n8n-chat-widget-2 .chat-footer button {
   background: var(--primary-color);
