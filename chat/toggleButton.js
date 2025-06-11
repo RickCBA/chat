@@ -6,7 +6,7 @@ export function setupToggleButton() {
   // 1) Create the link once:
   const closedByLink = document.createElement('a');
   closedByLink.href           = 'https://closedby.ai/';
-  closedByLink.textContent    = 'By ClosedBy.ai';
+  closedByLink.textContent    = '⚡️By ClosedBy.ai';
   closedByLink.target         = '_blank';
   closedByLink.rel            = 'noopener';
   closedByLink.classList.add('closedby-link');
