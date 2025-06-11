@@ -1552,6 +1552,7 @@ textarea::placeholder {
 }
 
 
+/* hidden initially */
 .chat-toggle-branding {
   position: absolute;
   top: 50%;
