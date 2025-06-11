@@ -1518,9 +1518,6 @@ textarea::placeholder {
   position: relative;
 }
 
-/* ----------------------------------------------------------------------------
-   🔹 ClosedBy.ai pill to the left of the toggle (fade to 70% opacity)
-   ---------------------------------------------------------------------------- */
 #n8n-chat-widget-2 .chat-window-toggle {
   position: relative; /* context for absolutely-positioned pill */
 }
@@ -1541,12 +1538,12 @@ textarea::placeholder {
   pointer-events: none;          /* only inner <a> is clickable */
   opacity: 0;
   animation: cb-fade-slide-left 0.6s ease-out forwards;
-  animation-delay: 0.5s;
+  animation-delay: 0.0s;
 }
 
 /* when the widget is open, fade-slide to 70% and enable clicks */
 #n8n-chat-widget-2 .chat-window-toggle.open .closedby-pill {
-  opacity: 0.8;                   /* final opacity */
+  opacity: 0.7;                   /* final opacity */
   pointer-events: auto;
   animation-name: cb-fade-slide-left;
 }
@@ -1563,7 +1560,7 @@ textarea::placeholder {
     transform: translateY(-50%) translateX(10px);
   }
   to {
-    opacity: 0.7;
+    opacity: 0.8;
     transform: translateY(-50%) translateX(0);
   }
 }
