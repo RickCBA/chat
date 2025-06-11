@@ -3,27 +3,36 @@ export function setupToggleButton() {
     '#n8n-chat-widget-2 .chat-window-toggle'
   );
 
-  // 1) Create the link once:
+  // 1️⃣ Create a <span> pill wrapper instead of an <a>
+  const closedByPill = document.createElement('span');
+  closedByPill.classList.add('closedby-pill');
+  // we'll toggle this on/off via CSS when .open is present
+  closedByPill.style.display = 'none';
+
+  // 2️⃣ Add the “⚡️By ” text
+  closedByPill.appendChild(document.createTextNode('⚡️By\u00A0'));
+
+  // 3️⃣ Create the real link, just for the domain
   const closedByLink = document.createElement('a');
-  closedByLink.href           = 'https://closedby.ai/';
-  closedByLink.textContent    = '⚡️By ClosedBy.ai';
-  closedByLink.target         = '_blank';
-  closedByLink.rel            = 'noopener';
+  closedByLink.href        = 'https://closedby.ai/';
+  closedByLink.textContent = 'ClosedBy.ai';
+  closedByLink.target      = '_blank';
+  closedByLink.rel         = 'noopener';
   closedByLink.classList.add('closedby-link');
-  // hide by default; CSS will flip this when we add `.open` to the toggle:
-  closedByLink.style.display  = 'none';
+  // make it inherit the pill’s text-color
+  closedByLink.style.color           = 'inherit';
+  closedByLink.style.textDecoration  = 'none';
 
-  // 2) Append it *inside* your existing toggle element:
-  chatToggleButton.appendChild(closedByLink);
+  closedByPill.appendChild(closedByLink);
 
+  // 4️⃣ Insert the pill into the toggle button
+  chatToggleButton.appendChild(closedByPill);
+
+  // 5️⃣ Toggle visibility on click
   let chatOpened = false;
   chatToggleButton.addEventListener('click', () => {
     chatOpened = !chatOpened;
-
-    // 3) Toggle an “open” class on the toggle container:
     chatToggleButton.classList.toggle('open', chatOpened);
-
-    // 4) Optionally, if you *also* still want to show/hide via inline:
-    closedByLink.style.display = chatOpened ? 'block' : 'none';
+    closedByPill.style.display = chatOpened ? 'inline-block' : 'none';
   });
 }
