@@ -1531,7 +1531,7 @@ textarea::placeholder {
   position: relative; /* make this the positioning context */
 }
 
-#n8n-chat-widget-2 .chat-window-toggle .closedby-pill {
+#n8n-chat-widget-2 .chat-window-toggle .closedby-link {
   position: absolute;
   bottom: -28px;              /* tuck it just below the toggle */
   left: 50%;
@@ -1551,12 +1551,12 @@ textarea::placeholder {
 }
 
 /* only run the animation when .open is added */
-#n8n-chat-widget-2 .chat-window-toggle.open .closedby-pill {
+#n8n-chat-widget-2 .chat-window-toggle.open .closedby-link {
   animation-name: cb-fade-slide-up;
 }
 
 /* hover tweak */
-#n8n-chat-widget-2 .chat-window-toggle .closedby-pill:hover {
+#n8n-chat-widget-2 .chat-window-toggle .closedby-link:hover {
   background: rgba(255, 255, 255, 1);
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
   text-decoration: underline;
