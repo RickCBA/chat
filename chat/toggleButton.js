@@ -1,14 +1,13 @@
-// chat/toggleButton.js
 import { centerChatWindow } from './helper/centerChatWindow.js';
 
-// assume you have `config` in scope here; if not, pass it into this function.
 export function setupToggleButton(config) {
-  const overlay          = document.getElementById('chat-overlay');
+  // 1) grab the wrapper (our “overlay”)
+  const overlay = document.querySelector('.chat-window-wrapper');
   const chatToggleButton = document.querySelector(
     '#n8n-chat-widget-2 .chat-window-toggle'
   );
 
-  // 1) Inject a real <a> tag for your “Powered by…” pill
+  // 2) inject the real <a> (hidden by default)
   const brandingLink = document.createElement('a');
   brandingLink.href        = 'https://closedby.ai';
   brandingLink.target      = '_blank';
@@ -16,7 +15,6 @@ export function setupToggleButton(config) {
   brandingLink.className   = 'chat-toggle-branding';
   brandingLink.textContent = '⚡ By Closedby.ai';
   brandingLink.style.display = 'none';
-  // put it right after the toggle button in the DOM:
   chatToggleButton.parentNode.insertBefore(
     brandingLink,
     chatToggleButton.nextSibling
@@ -26,32 +24,29 @@ export function setupToggleButton(config) {
   let chatOpened    = false;
 
   chatToggleButton.addEventListener('click', () => {
-    manualClicked = true;             // user has now clicked
-    chatOpened    = !chatOpened;      // flip open/closed
+    manualClicked = true;
+    chatOpened    = !chatOpened;
 
-    // show or hide the overlay:
-    overlay.style.display = chatOpened ? 'block' : 'none';
+    // show/hide the wrapper
+    overlay.style.display = chatOpened ? 'flex' : 'none';
 
-    // tag the button itself with an “open” class:
+    // toggle an “open” flag on the button (for CSS, if you want)
     chatToggleButton.classList.toggle('open', chatOpened);
 
-    // now show or hide your branding link:
+    // show/hide our real <a>
     brandingLink.style.display = chatOpened ? 'block' : 'none';
 
     if (chatOpened) {
       centerChatWindow();
-      // …any other “on open” logic…
     }
   });
 
-  // 2) Re-implement your auto-open here so it won’t fire
-  //    if the user has already clicked (manualClicked),
-  //    and only if the chat is still closed
+  // 3) auto-open after delay, unless user already clicked
   if (config.behavior.autoOpen) {
     setTimeout(() => {
       if (!manualClicked && !chatOpened) {
         chatToggleButton.click();
       }
-    }, config.behavior.autoOpenDelay || 4000 /* or 5000 */);
+    }, config.behavior.autoOpenDelay || 4000);
   }
 }
