@@ -37,8 +37,8 @@ export function initChat(sessionId) {
   // Auto-open behavior if configured
   if (config.behavior.autoOpen) {
     setTimeout(() => {
-      const toggleButton = document.querySelector('#n8n-chat-widget-2-toggle');
-      if (toggleButton && !document.querySelector('#n8n-chat-widget-2').classList.contains('open')) {
+      const toggleButton = document.querySelector('.chat-window-toggle');
+      if (toggleButton && !document.querySelector('.chat-window-toggle').classList.contains('open')) {
         toggleButton.click();
       }
     }, config.behavior.autoOpenDelay || 5000);
