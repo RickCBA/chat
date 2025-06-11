@@ -24,7 +24,7 @@ export async function loadWidgetConfig(practiceId) {
         ]
       },
       behavior: {
-        autoOpen: false,
+        autoOpen: true,
         autoOpenDelay: 5000,
         position: 'bottom-right'
       },
