@@ -24,7 +24,19 @@ export function initChat(sessionId) {
         sessionId,
         chatInput: config.content.welcomeMessage || 'Hello! How can I help?',
       });
-    },
+        const footer = document.querySelector(
+    '#n8n-chat-widget-2 .chat-footer'
+  );
+  if (footer) {
+    const a = document.createElement('a');
+    a.href        = 'https://closedby.ai';
+    a.target      = '_blank';
+    a.rel         = 'noopener';
+    a.className   = 'chat-footer-branding';
+    a.textContent = '⚡ By closedby.ai';
+    footer.appendChild(a);
+  }
+  },
     i18n: {
       en: {
         title:            config.branding.title || '',
