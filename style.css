@@ -1518,22 +1518,19 @@ textarea::placeholder {
   position: relative;
 }
 
-/* ────────────────────────────────────────────────────────────────────────── */
-/* 🔹 ClosedBy.ai pill: drop-from-under + slide-left + fade to 70%           */
-/* ────────────────────────────────────────────────────────────────────────── */
+/* ----------------------------------------------------------------------------
+   🔹 ClosedBy.ai pill: drop-from-under-then-slide-left + fade-to-70%
+   ---------------------------------------------------------------------------- */
 #n8n-chat-widget-2 .chat-window-toggle {
-  position: relative; /* make this a positioning context */
+  position: relative; /* context for the pill */
 }
 
 #n8n-chat-widget-2 .chat-window-toggle .closedby-pill {
   position: absolute;
-  top: 50%;        /* start vertically centered on toggle */
-  left: 50%;       /* start horizontally centered on toggle */
+  top: 50%;    
+  left: 50%;  
+  /* start centered under the toggle, 10px lower */
   transform: translate(-50%, 10px);
-    /* 
-      -50% X centers the pill under the toggle,
-      10px Y pushes it slightly below.
-    */
   white-space: nowrap;
   padding: 4px 10px;
   font-size: 10px;
@@ -1541,26 +1538,24 @@ textarea::placeholder {
   background: rgba(255,255,255,0.9);
   border-radius: 9999px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  pointer-events: none;     /* only <a> is clickable */
+  pointer-events: none; /* only the link inside is clickable */
   opacity: 0;
-  
-  /* animate both transform & opacity */
-  animation: cb-ride-up-left 0.6s ease-out forwards;
+  /* no animation defined here */
 }
 
-/* when the chat is open, trigger the slide+fade */
+/* when .open is added, trigger the ride-and-fade */
 #n8n-chat-widget-2 .chat-window-toggle.open .closedby-pill {
-  opacity: 0.7;           /* final 70% */
-  pointer-events: auto;   /* allow the link to be clicked */
-  animation-name: cb-ride-up-left;
+  pointer-events: auto; /* now the link can be clicked */
+  animation: cb-ride-up-left 0.6s ease-out forwards;
+  animation-delay: 0.2s;
 }
 
-/* only underline on hover of the inner link */
-#n8n-chat-widget-2 .closedby-pill .closedby-link:hover {
+/* only underline when hovering the link */
+#n8n-chat-widget-2 .chat-window-toggle .closedby-pill .closedby-link:hover {
   text-decoration: underline;
 }
 
-/* keyframes: from under-toggle → beside toggle */
+/* keyframes: from under-toggle → beside it, fade 0→.7 */
 @keyframes cb-ride-up-left {
   from {
     opacity: 0;
@@ -1568,12 +1563,13 @@ textarea::placeholder {
   }
   to {
     opacity: 0.7;
-    transform: translate(calc(-100% - 8px), -50%);
-    /*
-      -100% X shifts the pill left by its own width,
-      -8px adds that 8px gap,
-      -50% Y centers it vertically.
+    /* 
+      translateX(-100% - 8px): 
+        -100% moves the pill left by its own width, 
+        -8px adds your gap. 
+      translateY(-50%) centers vertically.
     */
+    transform: translate(calc(-100% - 8px), -50%);
   }
 }
 
