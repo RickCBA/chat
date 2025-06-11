@@ -1523,54 +1523,48 @@ textarea::placeholder {
   position: relative;
 }
 
-/* base style for your injected link */
-/* ----------------------------------------------------------------------------
-   🔹 ClosedBy.ai pill under the widget toggle
-   ---------------------------------------------------------------------------- */
-#n8n-chat-widget-2 .chat-window-toggle {
-  position: relative; /* make this the positioning context */
-}
-
+/* base pill style */
 #n8n-chat-widget-2 .chat-window-toggle .closedby-link {
   position: absolute;
-  bottom: -28px;              /* tuck it just below the toggle */
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  display: inline-block;      /* let animation bring opacity in */
+  top: 50%;
+  right: calc(100% + 8px);       /* 8px gap to the left of the toggle */
+  transform: translateY(-50%) translateX(10px);
+  display: inline-block;
   padding: 4px 10px;
   font-size: 10px;
   color: #555;
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 9999px;      /* big pill */
+  border-radius: 9999px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   text-decoration: none;
   pointer-events: auto;
   opacity: 0;
-  animation: cb-fade-slide-up 0.35s ease-out forwards;
+  /* slide-in from the right + fade */
+  animation: cb-fade-slide-left 0.35s ease-out forwards;
   animation-delay: 0.2s;
 }
 
-/* only run the animation when .open is added */
+/* trigger the animation when open */
 #n8n-chat-widget-2 .chat-window-toggle.open .closedby-link {
-  animation-name: cb-fade-slide-up;
+  animation-name: cb-fade-slide-left;
 }
 
-/* hover tweak */
+/* hover state */
 #n8n-chat-widget-2 .chat-window-toggle .closedby-link:hover {
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255,255,255,1);
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
   text-decoration: underline;
 }
 
-/* keyframes for fade + slide */
-@keyframes cb-fade-slide-up {
+/* keyframes: start 10px over, fade in, slide to 0 */
+@keyframes cb-fade-slide-left {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(10px);
+    transform: translateY(-50%) translateX(10px);
   }
   to {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(-50%) translateX(0);
   }
 }
 
