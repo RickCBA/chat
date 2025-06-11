@@ -6,7 +6,7 @@ export function initChat(sessionId) {
   const practiceId = window.widgetConfig.practiceId;
   
   // Construct Webhook URL with only practiceId
-  const webhookUrl = `https://closedbyrick.app.n8n.cloud/webhook/425716f6-8ec3-4d6c-b02a-59c22e6c0842?practice_id=${encodeURIComponent(practiceId)}`;
+  const webhookUrl = `https://closedbyrick.app.n8n.cloud/webhook/widget-message?practice_id=${encodeURIComponent(practiceId)}`;
   console.log('Using webhookUrl:', webhookUrl);
   
   createChat({
