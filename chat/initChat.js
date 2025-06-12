@@ -1,4 +1,4 @@
-
+// initChat.js
 import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
 export function initChat(sessionId) {
@@ -35,13 +35,24 @@ export function initChat(sessionId) {
     },
   });
   
-  // Auto-open behavior if configured
+  // Auto-open behavior if configured (only once per session)
   if (config.behavior.autoOpen) {
-    setTimeout(() => {
-      const toggleButton = document.querySelector('.chat-window-toggle');
-      if (toggleButton && !document.querySelector('.chat-window-toggle').classList.contains('open')) {
-        toggleButton.click();
-      }
-    }, config.behavior.autoOpenDelay || 5000);
+    const storageKey = 'closedbyChatAutoOpened';
+    const hasAutoOpened = sessionStorage.getItem(storageKey);
+    
+    if (!hasAutoOpened) {
+      // Mark that we've auto-opened so we don't do it again in this session
+      sessionStorage.setItem(storageKey, '1');
+      
+      setTimeout(() => {
+        const toggleButton = document.querySelector('#n8n-chat-widget-2 .chat-window-toggle');
+        if (
+          toggleButton &&
+          !toggleButton.classList.contains('open')
+        ) {
+          toggleButton.click();
+        }
+      }, config.behavior.autoOpenDelay || 5000);
+    }
   }
 }
